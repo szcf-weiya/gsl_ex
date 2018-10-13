@@ -45,13 +45,21 @@ int main()
 	}
       cout << endl;
     }
+  // toy example of getting one row of a matrix add @20181013
+  gsl_vector_view vv = gsl_matrix_row(&m.matrix, 2);
+  cout << "test" << endl;
   for (size_t i = 0; i < 4; i++)
+    {
+      cout << gsl_vector_get(&vv.vector, i) << endl;
+    }
+  // end of toy example
+  /*  for (size_t i = 0; i < 4; i++)
     cout << gsl_vector_get(&b.vector, i) << " ";
   //  gsl_vector_free(b);
   //gsl_matrix_free(A);
   gsl_blas_dtrsv(CblasLower, CblasNoTrans, CblasUnit, &m.matrix, &b.vector);
   for (size_t i = 0; i < 4; i++)
     cout << gsl_vector_get(&b.vector, i) << " ";
-  
+  */
   return 0;
 }
